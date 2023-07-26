@@ -27,7 +27,6 @@ struct
 	int objectiveStringIndex
 	bool SP_displayObjectiveOnClose
 	var settingsHeader
-	var randomizerHeader
 	var faqButton
 	int titanHeaderIndex
 	var titanHeader
@@ -113,8 +112,13 @@ void function InitInGameMPMenu()
 		Hud_AddEventHandler( soundButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "VideoMenu" ) ) )
 	#endif
 
-	file.faqButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "#KNB_MENU_HEADER" )
-	Hud_AddEventHandler( file.faqButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "KnowledgeBaseMenu" ) ) )
+	// MOD SETTINGS
+	var modSettingsButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "Mod Settings" )
+	Hud_AddEventHandler( modSettingsButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "ModSettings" ) ) )
+
+	// Nobody reads the FAQ so we replace it with ModSettings because of the limited combobutton space available
+	//file.faqButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "#KNB_MENU_HEADER" )
+	//Hud_AddEventHandler( file.faqButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "KnowledgeBaseMenu" ) ) )
 
 	//var dataCenterButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "#DATA_CENTER" )
 	//Hud_AddEventHandler( dataCenterButton, UIE_CLICK, OpenDataCenterDialog )
@@ -134,7 +138,7 @@ void function OnInGameMPMenu_Open()
 
 	bool faqIsNew = !GetConVarBool( "menu_faq_viewed" ) || HaveNewPatchNotes() || HaveNewCommunityNotes()
 	RuiSetBool( Hud_GetRui( file.settingsHeader ), "isNew", faqIsNew )
-	ComboButton_SetNew( file.faqButton, faqIsNew )
+	//ComboButton_SetNew( file.faqButton, faqIsNew )
 
 	UpdateLoadoutButtons()
 	RefreshCreditsAvailable()
@@ -256,6 +260,10 @@ void function InitInGameSPMenu()
 		var videoButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "#VIDEO" )
 		Hud_AddEventHandler( videoButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "VideoMenu" ) ) )
 	#endif
+	
+	// MOD SETTINGS
+	// var modSettingsButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "Mod Settings" )
+	// Hud_AddEventHandler( modSettingsButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "ModSettings" ) ) )
 	var srButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "Speedrunning")
 	AddButtonEventHandler( srButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "SRMM_SettingsMenu" ) ) )
 
@@ -294,6 +302,7 @@ void function InitInGameSPMenu()
 	AddMenuFooterOption( menu, BUTTON_A, "#A_BUTTON_SELECT" )
 	AddMenuFooterOption( menu, BUTTON_B, "#B_BUTTON_CLOSE", "#CLOSE" )
 }
+
 
 void function OnOpenInGameSPMenu()
 {

@@ -1,0 +1,111 @@
+{
+	"Name": "TF2SR Menu Mod",
+	"Description": "More compact version of taskinoz's EMM geared specifically toward speedrunners and TASers ",
+	"LoadPriority": 2,
+	"Authors": ["zweek"],
+	"Version": "2.4.2",
+	"ConVars": [
+		{
+			"Name": "gamepad_custom_enabled",
+			"DefaultValue": "0"
+		},
+		{
+			"Name": "mat_disable_bloom",
+			"DefaultValue": "0"
+		},
+		{
+			"Name": "password",
+			"DefaultValue": "metric"
+		},
+		{
+			"Name": "cl_showfps",
+			"DefaultValue": "0"
+		},
+		{
+			"Name": "showfps_enabled",
+			"DefaultValue": "0"
+		},
+		{
+			"Name": "cl_showpos",
+			"DefaultValue": "0"
+		},
+		{
+			"Name": "sv_cheats",
+			"DefaultValue": "0"
+		},
+		{
+			"Name": "voice_enabled",
+			"DefaultValue": "0"
+		}
+	],
+	"Scripts": [
+		{
+			"Path": "srmm_h.nut",
+			"RunOn": "SERVER || CLIENT || UI"
+		},
+		{
+			"Path": "sp/srmm_savestates.nut",
+			"RunOn": "SERVER && SP"
+		},
+		{
+			"Path": "sp/srmm_resets.nut",
+			"RunOn": "SERVER && SP"
+		},
+		{
+			"Path": "client/srmm_infohud.nut",
+			"RunOn": "CLIENT && SP"
+		},
+		{
+			"Path": "sp/cl_pilot_speedometer.gnut",
+			"RunOn": "CLIENT && SP"
+		},
+		{
+			"Path": "ui/srmm_menu_practicewarps.nut",
+			"RunOn": "UI"
+		},
+		{
+			"Path": "ui/srmm_menu_settings.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_practicewarps_h.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_gauntletwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_btwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_bnrwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_itawarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_encwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_bwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_tbfwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_arkwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		},
+		{
+			"Path": "ui/practicewarps/srmm_menu_foldwarps.nut",
+			"RunOn": "UI && PC_PROG"
+		}
+	]
+}
